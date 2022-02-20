@@ -32,12 +32,13 @@ app.post('/', function(req, res){
   const config_url = config.MY_API_LIST_URL;
   const config_auth = config.SECRET_API_ID;
 
+
   const jsonData= JSON.stringify(data);
   const options={
     method:"POST",
-    auth: process.enc.API_ID,
+    auth: process.env.API_ID || config_auth,
   }
-  const request= https.request(process.enc.API_URL, options, function(response){
+  const request= https.request((process.env.API_URL||config_url ), options, function(response){
     if(response.statusCode === 200){
 
       res.sendFile(__dirname+"/success.html");
