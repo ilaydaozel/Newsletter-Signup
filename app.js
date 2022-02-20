@@ -1,3 +1,4 @@
+import{config} from '.config.js';
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
@@ -31,13 +32,16 @@ app.post('/', function(req, res){
       }
     ]
   };
+
+  const config_url = config.MY_API_LIST_URL;
+  const config_auth = config.SECRET_API_ID;
+
   const jsonData= JSON.stringify(data);
-  const url = "https://us14.api.mailchimp.com/3.0/lists/5267a5bcd9";
   const options={
     method:"POST",
-    auth: "ilayda1:a49ad0c99a73085d9df231e4978fa342-us14"
+    auth: config_auth,
   }
-  const request= https.request(url, options, function(response){
+  const request= https.request(config_url, options, function(response){
     if(response.statusCode === 200){
 
       res.sendFile(__dirname+"/success.html");
