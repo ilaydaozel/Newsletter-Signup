@@ -8,10 +8,7 @@ const app= express();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-//api id
-//a49ad0c99a73085d9df231e4978fa342-us14
-//list
-//5267a5bcd9
+
 app.get('/', function(req, res){
   res.sendFile(__dirname+ "/signup.html");
 
