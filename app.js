@@ -1,9 +1,8 @@
-import{config} from '.config.js';
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https= require("https");
-
+const config = require("./config.js");
 const app= express();
 
 app.use(express.static("public"));
