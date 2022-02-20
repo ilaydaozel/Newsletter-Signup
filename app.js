@@ -35,9 +35,9 @@ app.post('/', function(req, res){
   const jsonData= JSON.stringify(data);
   const options={
     method:"POST",
-    auth: config_auth,
+    auth: process.enc.API_ID,
   }
-  const request= https.request(config_url, options, function(response){
+  const request= https.request(process.enc.API_URL, options, function(response){
     if(response.statusCode === 200){
 
       res.sendFile(__dirname+"/success.html");
